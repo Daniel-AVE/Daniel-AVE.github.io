@@ -47,7 +47,8 @@ jobs:
         with:
           images: danielevensen/github-workshop
       - 
-        name: docker/build-push-action@v2
+        name: Pushes image
+        uses: docker/build-push-action@v2
         with:
           push: true
           tags: user/apps:latest
