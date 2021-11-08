@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Deploy
-        uses: Daniel-AVE.github/workflows/build-pipeline.yml
+        uses: Daniel-AVE.github/workflows/build-pipeline.yml@4.1.4
         with:
           branches: gh-pages
           folder: dist
