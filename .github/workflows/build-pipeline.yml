@@ -30,7 +30,6 @@ jobs:
           FIRST_NAME: Daniel
           LAST_NAME: Evensen
           DAY: Monday
-          PASSWORD: Accenture
 
   deploy:
     needs: build
