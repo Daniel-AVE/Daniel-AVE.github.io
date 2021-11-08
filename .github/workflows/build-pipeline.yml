@@ -35,13 +35,17 @@ jobs:
   Docker:
     runs-on: ubuntu-latest
     steps:
-      - name: docker/login-action@v1
-        run: echo ${{secrets.USERNAME}}
-        run: echo ${{secrets.PASSWORD}}
-      - name: docker/metadata-action@v3
-        run: echo $Github-workshop/Dockerfile
-        env:
-          Github-workshop/Dockerfile: Daniel-AVE/Daniel-AVE.github.io/Dockerfile
+      - 
+      name: Logs in to docker
+      uses: docker/login-action@v1
+      with:
+        username: ${{secrets.DOCKER_USERNAME}}
+        password: ${{secrets.DOCKER_USERNAME}}
+      - 
+      name: Where to store docker image
+      uses: docker/metadata-action@v3
+      with:
+        images: Dockerfile/scratch
 
   deploy:
     needs: build
