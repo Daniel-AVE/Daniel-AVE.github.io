@@ -19,7 +19,7 @@ jobs:
         run: npm ci
       # Step 3 - Add tests and linting here
       - name: Run test
-        run: npm run test
+        run: npm test
       - name: Run typescript lint and format check
         run: npm run lint:ts
       - name: Run styles lint and format check
@@ -30,6 +30,18 @@ jobs:
           FIRST_NAME: Daniel
           LAST_NAME: Evensen
           DAY: Monday
+          SECRET: secrets.PASSWORD
+
+  Docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker/login-action@v1
+        run: echo ${{secrets.USERNAME}}
+        run: echo ${{secrets.PASSWORD}}
+      - name: docker/metadata-action@v3
+        run: echo $Github-workshop/Dockerfile
+        env:
+          Github-workshop/Dockerfile: Daniel-AVE/Daniel-AVE.github.io/Dockerfile
 
   deploy:
     needs: build
