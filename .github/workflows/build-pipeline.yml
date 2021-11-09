@@ -54,7 +54,7 @@ jobs:
           push: true
           tags: user/app:latest
           with:
-            image: Dockerfile
+            images: Dockerfile
 
   deploy:
     needs: build
