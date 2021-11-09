@@ -52,8 +52,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: user/app:latest
-          images: Dockerfile
+          tags: ${{ steps.meta.outputs.tags }}
 
   deploy:
     needs: build
